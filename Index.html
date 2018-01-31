@@ -1,0 +1,51 @@
+<!DOCTYPE html lang="pt-br">
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="">
+	<title>Calculadora de IMC com Input</title>
+</head>
+<body>
+	<input type="text" placeholder="Digite seu Peso" id="peso"></input><br>
+	<input type="text" placeholder="Digite sua Altura" id="alt"></input><br>
+
+	<input type="button" value="Calcular" onclick="calc()"></input><br>
+	
+
+<script>
+
+	function calc(){
+		
+		var peso = document.getElementById('peso').value;
+		var alt = document.getElementById('alt').value;
+		var calc = peso/(alt*alt);
+		console.log(peso);
+		alert('Seu IMC é:' + calc.toFixed(1));
+		
+	    if      (calc < 16){
+			document.getElementById('print').value = 'Magreza grave';
+		}else if(calc <= 17){
+			document.getElementById('print').value =('Magreza moderada');
+		}else if(calc <= 18.5){
+			document.getElementById('print').value =('Magreza leve');
+		}else if(calc <= 25){
+			document.getElementById('print').value =('Saudável');
+		}else if(calc <= 30) {
+			document.getElementById('print').value =('Sobrepeso');
+		}else if(calc <= 35) {
+			document.getElementById('print').value =('Obesidade Grau I');
+		}else if(calc <= 40) {
+			document.getElementById('print').value =('Obesidade Grau II (Severa)');
+		}else if(calc >= 40){
+			document.getElementById('print').value =('Obesidade Grau III (Mórbida)');
+		}else{
+			document.getElementById('print').value =('');
+		}
+	}
+
+</script>
+
+<input type="text" placeholder="Seu texto Aqui" readonly="false" id="print">
+
+</body>
+</html>
